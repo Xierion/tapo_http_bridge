@@ -101,7 +101,7 @@ You should now see a power toggle for `tapo_plug` in Mainsail/Fluidd.
 
 - The bridge only listens on `127.0.0.1`, since Moonraker runs on the same
   Pi and the config file contains your Tapo account password. Don't expose
-  port 5111 externally.
+  port 5111 externally. This can be changed by modifying app.py
 - Requests to the plug are serialized with a lock, since the Tapo protocol
   doesn't handle concurrent sessions well.
 - If `pip install` for `PyP100` fails, make sure `git` is installed
