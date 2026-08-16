@@ -112,4 +112,4 @@ if __name__ == "__main__":
     # server holds your Tapo account password in memory / in config.json.
     # Change host="0.0.0.0" only if you understand the exposure, and put
     # it behind a firewall / auth proxy if you do.
-    app.run(host="0.0.0.0", port=5111)
+    app.run(host="127.0.0.1", port=5111)
