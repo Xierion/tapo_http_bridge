@@ -8,7 +8,7 @@ calls against the [almottier/TapoP100](https://github.com/almottier/TapoP100)
 
 ## 1: Update System and Install Dependencies
 
-```
+```bash
 sudo apt update
 sudo apt upgrade -y
 sudo apt install -y git python3
@@ -18,7 +18,7 @@ sudo apt install -y git python3
 
 Clone Tapo P100 HTTP bridge
 
-```
+```bash
 cd ~
 git clone https://github.com/Xierion/tapo_http_bridge.git
 cd ~/tapo_http_bridge
@@ -26,7 +26,7 @@ cd ~/tapo_http_bridge
 
 ## 3. Create a venv and install deps
 
-```
+```bash
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
@@ -38,7 +38,7 @@ production WSGI server that runs it), and PyP100 (the Tapo device library).
 
 ## 4. Configure your plug + Tapo account
 
-```
+```bash
 cp config.example.json config.json
 nano config.json      # fill in ip, email, password
 chmod 600 config.json # it's plaintext, so lock it down
@@ -51,14 +51,14 @@ device password.
 
 ## 5. Quick manual test (before installing the service)
 
-```
+```bash
 source venv/bin/activate
 gunicorn --bind 127.0.0.1:5111 app:app
 ```
 
 In another terminal:
 
-```
+```bash
 curl http://127.0.0.1:5111/status
 curl http://127.0.0.1:5111/on
 curl http://127.0.0.1:5111/off
@@ -69,7 +69,7 @@ server once this works.
 
 ## 6. Install as a systemd service
 
-```
+```bash
 sudo cp tapo-bridge.service /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable --now tapo-bridge.service
@@ -104,7 +104,7 @@ same time, which the Tapo protocol handles poorly.
 Append to `~/printer_data/config/moonraker.conf` (adjust the section name
 `[power tapo_plug]` to whatever you want it called in Mainsail/Fluidd):
 
-```
+```bash
 [power tapo_plug]
 type: http
 on_url: http://127.0.0.1:5111/on
@@ -119,7 +119,7 @@ off_when_shutdown: False # Set to True to power off on M112 emergency stop
 
 Then restart Moonraker:
 
-```
+```bash
 sudo systemctl restart moonraker
 ```
 
