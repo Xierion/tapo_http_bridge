@@ -104,7 +104,7 @@ same time, which the Tapo protocol handles poorly.
 Append to `~/printer_data/config/moonraker.conf` (adjust the section name
 `[power tapo_plug]` to whatever you want it called in Mainsail/Fluidd):
 
-```bash
+```
 [power tapo_plug]
 type: http
 on_url: http://127.0.0.1:5111/on
