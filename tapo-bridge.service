@@ -9,7 +9,14 @@ Type=simple
 User=pi
 Group=pi
 WorkingDirectory=/home/pi/tapo_http_bridge
-ExecStart=/home/pi/tapo_http_bridge/venv/bin/python3 /home/pi/tapo_http_bridge/app.py
+ExecStart=/home/pi/tapo_http_bridge/venv/bin/gunicorn \
+    --workers 1 \
+    --timeout 15 \
+    --graceful-timeout 5 \
+    --bind 127.0.0.1:5111 \
+    --access-logfile - \
+    --error-logfile - \
+    app:app
 Restart=on-failure
 RestartSec=5
 
