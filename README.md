@@ -11,7 +11,7 @@ calls against the [almottier/TapoP100](https://github.com/almottier/TapoP100)
 ```bash
 sudo apt update
 sudo apt upgrade -y
-sudo apt install -y git python3
+sudo apt install -y git python3 python3-venv
 ```
 
 ## 2. Clone the repository
