@@ -1,0 +1,12 @@
+services:
+  tapo-bridge:
+    image: xierion/tapo-http-bridge:1.0.1
+    container_name: tapo-bridge
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:5111:5111"
+    volumes:
+      - type: bind
+        source: ./config.json
+        target: /app/config.json
+        read_only: true
