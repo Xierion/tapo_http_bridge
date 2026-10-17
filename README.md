@@ -83,9 +83,9 @@ Before enabling, edit `tapo-bridge.service` and update `User`, `Group`,
 username and install location if they differ from the defaults in the
 file.
 
-### Why gunicorn instead of `python3 app.py`
+### Why gunicorn instead of `python3 tapo_bridge.py`
 
-Flask's built-in server (what `python3 app.py` runs) is explicitly not
+Flask's built-in server (what `python3 tapo_bridge.py` runs) is explicitly not
 meant for unattended use — it's single-threaded, and a single slow or
 stuck call to the plug can hang it indefinitely, since PyP100 doesn't set
 its own request timeouts. Gunicorn's `--timeout` kills and automatically
@@ -93,7 +93,7 @@ restarts a worker that hangs past that limit, so the service recovers on
 its own instead of silently sitting unresponsive until someone notices.
 
 The service is intentionally kept to a single worker
-(`--workers 1`) — not for lack of load, but because `app.py` serializes
+(`--workers 1`) — not for lack of load, but because `tapo_bridge.py` serializes
 all plug calls through one `threading.Lock()`, and that lock only holds
 within a single process. Running more than one worker would give each
 process its own lock, letting concurrent requests reach the plug at the
