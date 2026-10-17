@@ -31,4 +31,4 @@ USER tapo
 
 EXPOSE 5111
 
-CMD ["gunicorn", "--workers", "1", "--timeout", "15", "--graceful-timeout", "5", "--bind", "0.0.0.0:5111", "--access-logfile", "-", "--error-logfile", "-", "app:app"]
+CMD ["gunicorn", "--workers", "1", "--timeout", "15", "--graceful-timeout", "5", "--bind", "0.0.0.0:5111", "--no-control-socket", "--access-logfile", "-", "--error-logfile", "-", "app:app"]
