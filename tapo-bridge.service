@@ -16,7 +16,7 @@ ExecStart=/home/pi/tapo_http_bridge/venv/bin/gunicorn \
     --bind 127.0.0.1:5111 \
     --access-logfile - \
     --error-logfile - \
-    app:app
+    tapo_bridge:app
 Restart=on-failure
 RestartSec=5
 
