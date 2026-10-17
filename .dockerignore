@@ -1,0 +1,9 @@
+.git
+.github
+venv
+__pycache__
+*.pyc
+config.json
+printer.cfg
+tapo-bridge.service
+README.md
