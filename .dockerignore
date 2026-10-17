@@ -4,6 +4,7 @@ venv
 __pycache__
 *.pyc
 config.json
+config.example.json
 printer.cfg
 tapo-bridge.service
 README.md
