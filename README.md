@@ -53,7 +53,7 @@ device password.
 
 ```bash
 source venv/bin/activate
-gunicorn --bind 127.0.0.1:5111 app:app
+gunicorn --bind 127.0.0.1:5111 tapo_bridge:app
 ```
 
 In another terminal:
