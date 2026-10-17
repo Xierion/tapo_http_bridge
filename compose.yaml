@@ -4,7 +4,7 @@ services:
     container_name: tapo-bridge
     restart: unless-stopped
     ports:
-      - "127.0.0.1:5111:5111"
+      - "5111:5111"
     volumes:
       - type: bind
         source: ./config.json
