@@ -5,6 +5,8 @@ a generic `type: http` device that hits arbitrary URLs. This bridge is a
 small Flask app, served by gunicorn, that translates those requests into
 calls against the [almottier/TapoP100](https://github.com/almottier/TapoP100)
 (`PyP100`) library.
+Also as a Docker: https://hub.docker.com/r/xierion/tapo-http-bridge
+
 
 ## 1: Update System and Install Dependencies
 
